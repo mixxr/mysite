@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/apps/mysite/osgiconfig"/>
+    <filter root="/apps/mysite/config.dev"/>
+    <filter root="/apps/mysite/config.author"/>
+    <filter root="/apps/mysite/config.prod"/>
+    <filter root="/apps/mysite/config.publish"/>
+    <filter root="/apps/mysite/config.stage"/>
 </workspaceFilter>
