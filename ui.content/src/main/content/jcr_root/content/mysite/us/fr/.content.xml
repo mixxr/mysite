@@ -6,9 +6,9 @@
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
         cq:template="/conf/mysite/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
-        jcr:title="it"
+        jcr:title="fr"
         sling:resourceType="mysite/components/page"
-        pageTitle="My Site Italian from Git">
+        pageTitle="My Site French from Git">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="mysite/components/container"
