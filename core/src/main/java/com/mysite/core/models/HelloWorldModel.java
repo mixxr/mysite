@@ -58,23 +58,29 @@ public class HelloWorldModel {
             + "Resource type is: " + resourceType + "\n"
             + "Current page is:  " + currentPagePath + "\n";
 
-            System.getenv().forEach((k, v) -> {
-                //System.out.println(k + ":" + v);
-                message = message + "\n ENV("+k+")="+v;
-            });
+        System.getenv().forEach((k, v) -> {
+            //System.out.println(k + ":" + v);
+            message = message + "\n ENV("+k+")="+v;
+        });
 
-            System.getProperties().forEach((k, v) -> {
-                //System.out.println(k + ":" + v);
-                message = message + "\n PROP("+k+")="+v;
-            });
+        System.getProperties().forEach((k, v) -> {
+            //System.out.println(k + ":" + v);
+            message = message + "\n PROP("+k+")="+v;
+        });
 
-            // Properties p = System.getProperties();
-            // Enumeration keys = p.keys();
-            // while (keys.hasMoreElements()) {
-            //     String k = (String)keys.nextElement();
-            //     String v = (String)p.get(k);
-            //     message = message + "\n PROP("+k+")="+v;
-            // }
+        long mb = 1024*1024;
+        // Get current size of heap in bytes
+        long heapSize = Runtime.getRuntime().totalMemory() / mb; 
+
+        // Get maximum size of heap in bytes. The heap cannot grow beyond this size.// Any attempt will result in an OutOfMemoryException.
+        long heapMaxSize = Runtime.getRuntime().maxMemory() / mb;
+
+        // Get amount of free memory within the heap in bytes. This size will increase // after garbage collection and decrease as new objects are created.
+        long heapFreeSize = Runtime.getRuntime().freeMemory() / mb; 
+
+        message = message + "\n MEM(heapSize MB)="+heapSize;
+        message = message + "\n MEM(heapMaxSize MB)="+heapMaxSize;
+        message = message + "\n MEM(heapFreeSize MB)="+heapFreeSize;
     }
 
     public String getMessage() {
