@@ -57,6 +57,24 @@ public class HelloWorldModel {
         message = "Hello World!\n"
             + "Resource type is: " + resourceType + "\n"
             + "Current page is:  " + currentPagePath + "\n";
+
+            System.getenv().forEach((k, v) -> {
+                //System.out.println(k + ":" + v);
+                message = message + "\n ENV("+k+")="+v;
+            });
+
+            System.getProperties().forEach((k, v) -> {
+                //System.out.println(k + ":" + v);
+                message = message + "\n PROP("+k+")="+v;
+            });
+
+            // Properties p = System.getProperties();
+            // Enumeration keys = p.keys();
+            // while (keys.hasMoreElements()) {
+            //     String k = (String)keys.nextElement();
+            //     String v = (String)p.get(k);
+            //     message = message + "\n PROP("+k+")="+v;
+            // }
     }
 
     public String getMessage() {

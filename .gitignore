@@ -48,11 +48,6 @@ local.properties
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-.DS_Store
-*.old
-.vscode
-*.zip
-
 # Package Files #
 *.jar
 *.war
@@ -105,3 +100,9 @@ reports/
 
 # Others
 dispatcher/src/conf.d/variables/default.vars
+
+# customizations
+.DS_Store
+*.old
+.vscode
+*.zip
