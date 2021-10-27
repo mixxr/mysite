@@ -69,14 +69,17 @@ public class SimpleServlet extends SlingSafeMethodsServlet {
 
         resp.setContentType("text/plain");
 
+        resp.getWriter().write("Title = " + resource.getValueMap().get(JcrConstants.JCR_TITLE));
+
         if (currentPage != null) {
             LOGGER.debug("servlet.currentPage="+currentPage.getPath());
             LOGGER.debug("servlet.mySearchPath="+currentPage.getProperties().get("mySearchPath"));
 
+            
             resp.getWriter().write(",currentPage = " + currentPage.getPath());
             resp.getWriter().write(",mySearchPath = " + currentPage.getProperties().get("mySearchPath"));
         }
         
-        //resp.getWriter().write(",Title = " + resource.getValueMap().get(JcrConstants.JCR_TITLE));
+        
     }
 }

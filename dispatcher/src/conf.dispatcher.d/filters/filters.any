@@ -15,3 +15,4 @@ $include "./default_filters.any"
 # Allow robots.txt
 /0103 { /type "allow" /url "/content/mysite/robots.txt" }
 /0104 { /type "allow" /url "/robots.txt" }
+/0105 { /type "allow" /url "/*sitemap.xml" }

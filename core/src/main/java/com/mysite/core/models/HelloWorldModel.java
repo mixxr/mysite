@@ -53,9 +53,15 @@ public class HelloWorldModel {
         String currentPagePath = Optional.ofNullable(pageManager)
                 .map(pm -> pm.getContainingPage(currentResource))
                 .map(Page::getPath).orElse("");
+        
+                Page currentPage = pageManager.getContainingPage(currentResource);
+                String locale = currentPage.getLanguage().getLanguage();
+                String parentPath = currentPage.getAbsoluteParent(2).getPath();
 
         message = "Hello World!\n"
             + "Resource type is: " + resourceType + "\n"
+            + "ParentPath is: " + parentPath + "\n"
+            + "Locale is: " + locale + "\n"
             + "Current page is:  " + currentPagePath + "\n";
 
         System.getenv().forEach((k, v) -> {
