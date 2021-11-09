@@ -53,7 +53,7 @@
         <aem.sdk.api>2021.3.5104.20210328T185548Z-210325</aem.sdk.api>
         <aemanalyser.version>0.9.2</aemanalyser.version>
         <componentGroupName>My Site</componentGroupName>
-        <sonar.exclusions>org/binarytherapy/generated/**/*, **/GuiceBindComposer.java</sonar.exclusions>
+        <sonar.inclusions>org/binarytherapy/generated/**/*, **/GuiceBindComposer.java</sonar.inclusions>
         <!--sonar.coverage.exclusions>org/binarytherapy/generated2/**/*, **/GuiceBindComposer2.java</sonar.coverage.exclusions-->
     </properties>
 
