@@ -1,0 +1,5 @@
+{
+    "myParameter" : "osgi config value",
+    "myEnvParameter" : "$[env:my_envparam]",
+    "mySecret" : "$[secret:my_secret]"
+}

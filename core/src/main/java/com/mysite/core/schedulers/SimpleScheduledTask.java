@@ -32,7 +32,7 @@ import org.slf4j.LoggerFactory;
 @Component(service=Runnable.class)
 public class SimpleScheduledTask implements Runnable {
 
-    @ObjectClassDefinition(name="A scheduled task",
+    @ObjectClassDefinition(name="SimpleScheduledTask - A scheduled task with aa secret",
                            description = "Simple demo for cron-job like task with properties")
     public static @interface Config {
 
@@ -43,23 +43,39 @@ public class SimpleScheduledTask implements Runnable {
                              description = "Whether or not to schedule this task concurrently")
         boolean scheduler_concurrent() default false;
 
-        @AttributeDefinition(name = "A parameter",
-                             description = "Can be configured in /system/console/configMgr")
+        @AttributeDefinition(name = "A osgi parameter",
+                             description = "Can be configured as osgi console")
         String myParameter() default "";
+
+        @AttributeDefinition(name = "An env parameter",
+                             description = "Can be configured as env variable")
+        String myEnvParameter() default "";
+
+        @AttributeDefinition(name = "A secret parameter",
+        description = "Can be configured as secret env variable")
+        String mySecret() default "";
     }
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private String myParameter;
+    private String myEnvParameter;
+    private String mySecret;
     
     @Override
     public void run() {
-        logger.debug("SimpleScheduledTask is now running, myParameter='{}'", myParameter);
+        logger.debug("SimpleScheduledTask is now running, myParameter='{}' myEnvParameter='{}' mySecret='{}'", myParameter, myEnvParameter, mySecret);
     }
 
+    /*
+    "$[env:my_var1]"
+    */
     @Activate
     protected void activate(final Config config) {
         myParameter = config.myParameter();
+        myEnvParameter = config.myEnvParameter();
+        mySecret = config.mySecret();
+        logger.debug("SimpleScheduledTask is active, myParameter='{}' myEnvParameter='{}' mySecret='{}'", myParameter, myEnvParameter, mySecret);
     }
 
 }

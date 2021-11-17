@@ -19,6 +19,12 @@ The main parts of the template are:
 
 ## How to build
 
+### secrets dir setup
+* add this line to `conf/sling.properties`:
+    `org.apache.felix.configadmin.plugin.interpolation.secretsdir=${sling.home}/secretsdir`
+* create a dir named `secretsdir` under AEM crx-quickstart folder and create a file for each secret param
+
+
 To build all the modules run in the project root directory the following command with Maven 3:
 
     mvn clean install
