@@ -19,10 +19,23 @@ The main parts of the template are:
 
 ## How to build
 
-### secrets dir setup
+### Env Variables
+Eg.:
+```json
+{
+    "myParameter" : "osgi config value",
+    "myEnvParameter" : "$[env:my_envparam]",
+    "mySecret" : "$[secret:my_secret]"
+}
+```
+* set an env variable before starting AEM. Eg.: `export my_envparam="this is a string value"`
+* create a secrets dir as explained in the following
+
+
+### Secrets dir setup (Local Environments)
 * add this line to `conf/sling.properties`:
     `org.apache.felix.configadmin.plugin.interpolation.secretsdir=${sling.home}/secretsdir`
-* create a dir named `secretsdir` under AEM crx-quickstart folder and create a file for each secret param
+* create a dir named `secretsdir` under AEM crx-quickstart folder and create a file for each secret param. Eg. create a file named `my_secret`.
 
 
 To build all the modules run in the project root directory the following command with Maven 3:
